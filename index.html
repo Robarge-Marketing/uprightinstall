@@ -628,7 +628,7 @@ footer ul li a:hover { color: var(--copper); }
         </div>
       </div>
 
-      <form class="contact-form" onsubmit="return handleSubmit(event)">
+      <form class="contact-form" action="https://formspree.io/f/xojrgpzd" method="POST"></form>
         <div class="formrow">
           <div class="field"><label for="fn">First Name *</label><input id="fn" type="text" name="first_name" required /></div>
           <div class="field"><label for="ln">Last Name *</label><input id="ln" type="text" name="last_name" required /></div>
@@ -701,12 +701,7 @@ footer ul li a:hover { color: var(--copper); }
   }, { threshold: .1 });
   els.forEach(el => io.observe(el));
 
-  function handleSubmit(e) {
-    e.preventDefault();
-    document.getElementById('formMsg').classList.add('show');
-    e.target.reset();
-    return false;
-  }
+  
 </script>
 
 </body>
