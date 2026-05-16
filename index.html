@@ -1,0 +1,713 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Upright Install — Signage & Graphics Installation | Greater Salt Lake</title>
+<meta name="description" content="Professional install services for signage, graphics, and specialty displays. Serving the Greater Salt Lake area. Clean work, on time, done right the first time." />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --bg:     #14110f;
+  --bg-2:   #1c1815;
+  --bg-3:   #232019;
+  --line:   #2e2823;
+  --line-2: #3a3128;
+  --ink:    #f2ece2;
+  --ink-dim:#b5aaa0;
+  --muted:  #7a7068;
+  --copper: #c08456;
+  --copper-bright: #d9996a;
+  --copper-deep:   #7a4f28;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Inter', sans-serif;
+  background: var(--bg);
+  color: var(--ink);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4 {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 700;
+  letter-spacing: .01em;
+  line-height: 1.05;
+  text-transform: uppercase;
+}
+.eyebrow {
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  font-size: .72rem;
+  text-transform: uppercase;
+  letter-spacing: .26em;
+  color: var(--copper);
+}
+a { color: inherit; text-decoration: none; transition: color .2s; }
+img { display: block; max-width: 100%; }
+
+/* UTILITY BAR */
+.utilitybar {
+  background: var(--bg);
+  border-bottom: 1px solid var(--line);
+  font-size: .8rem; padding: .65rem 0; color: var(--muted);
+}
+.utilitybar .wrap {
+  max-width: 1280px; margin: 0 auto; padding: 0 2rem;
+  display: flex; justify-content: space-between; align-items: center;
+}
+.utilitybar .badge {
+  color: var(--copper); text-transform: uppercase;
+  letter-spacing: .2em; font-weight: 600; font-size: .72rem;
+}
+.utilitybar .right { display: flex; gap: 1.6rem; }
+.utilitybar a:hover { color: var(--copper-bright); }
+@media (max-width: 640px) { .utilitybar .right { display: none; } }
+
+/* NAV */
+header.site {
+  position: sticky; top: 0; z-index: 50;
+  background: rgba(20,17,15,.94);
+  backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--line);
+}
+.nav {
+  max-width: 1280px; margin: 0 auto; padding: 1rem 2rem;
+  display: flex; align-items: center; justify-content: space-between; gap: 1rem;
+}
+.brand { display: flex; align-items: center; gap: .85rem; }
+.brand img { height: 40px; width: auto; }
+.brand .wordmark {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 700; font-size: 1.4rem; text-transform: uppercase;
+  letter-spacing: .06em; color: var(--ink);
+}
+.brand .wordmark span { color: var(--copper); }
+
+.menu { display: flex; align-items: center; gap: 2.2rem; }
+.menu a {
+  font-size: .9rem; font-weight: 500; color: var(--ink-dim);
+  text-transform: uppercase; letter-spacing: .1em;
+  position: relative; padding-bottom: 2px;
+}
+.menu a::after {
+  content: ""; position: absolute; left: 0; bottom: -4px;
+  width: 0; height: 2px; background: var(--copper); transition: width .3s;
+}
+.menu a:hover { color: var(--ink); }
+.menu a:hover::after { width: 100%; }
+
+.cta-btn {
+  display: inline-flex; align-items: center; gap: .5rem;
+  background: var(--copper); color: var(--bg);
+  padding: .8rem 1.5rem; border: 1px solid var(--copper);
+  font-family: 'Inter', sans-serif; font-weight: 600;
+  font-size: .88rem; letter-spacing: .04em;
+  cursor: pointer; transition: all .25s; white-space: nowrap;
+}
+.cta-btn:hover { background: var(--copper-bright); border-color: var(--copper-bright); }
+.cta-btn.ghost { background: transparent; color: var(--copper); }
+.cta-btn.ghost:hover { background: var(--copper); color: var(--bg); }
+
+.mobile-toggle {
+  display: none; background: transparent; border: 1px solid var(--line-2);
+  color: var(--ink-dim); padding: .5rem .9rem; cursor: pointer; font-size: .85rem;
+}
+@media (max-width: 960px) {
+  .menu { display: none; }
+  .nav .cta-btn { display: none; }
+  .mobile-toggle { display: inline-block; }
+  .menu.open {
+    display: flex; flex-direction: column;
+    position: absolute; top: 100%; left: 0; right: 0;
+    background: var(--bg-2); padding: 1.4rem 2rem; gap: 1rem;
+    border-bottom: 1px solid var(--line);
+  }
+  .menu.open a { padding: .5rem 0; border-bottom: 1px solid var(--line); }
+}
+
+/* HERO */
+.hero {
+  position: relative; background: var(--bg); color: var(--ink);
+  padding: 7rem 2rem 8rem; overflow: hidden;
+}
+.hero-video {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  object-fit: cover;
+  opacity: .35;
+  z-index: 0;
+}
+.hero::before {
+  content: ""; position: absolute; top: -20%; right: -5%;
+  width: 640px; height: 640px; pointer-events: none;
+  background: radial-gradient(circle, rgba(192,132,86,.11) 0%, transparent 65%);
+}
+.hero-wrap { max-width: 1280px; margin: 0 auto; position: relative; z-index: 1; }
+.hero .eyebrow { margin-bottom: 1.4rem; }
+.hero h1 {
+  font-size: clamp(3.2rem, 9vw, 7rem);
+  margin-bottom: 1.6rem; max-width: 1000px;
+}
+.hero h1 span { color: var(--copper); }
+.hero .sub {
+  font-size: clamp(1rem, 1.5vw, 1.18rem); font-weight: 300;
+  max-width: 600px; color: var(--ink-dim); margin-bottom: 2.4rem;
+}
+.hero .actions { display: flex; gap: 1rem; flex-wrap: wrap; }
+.hero .meta {
+  margin-top: 4.5rem; padding-top: 2.5rem;
+  border-top: 1px solid var(--line);
+  display: grid; grid-template-columns: repeat(3,1fr); gap: 2.5rem; max-width: 720px;
+}
+.hero .meta .lbl {
+  font-size: .7rem; text-transform: uppercase; letter-spacing: .22em;
+  color: var(--muted); margin-bottom: .4rem;
+}
+.hero .meta .val {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 1.3rem; font-weight: 600; letter-spacing: .04em;
+  text-transform: uppercase; color: var(--ink);
+}
+@media (max-width: 600px) {
+  .hero { padding: 4.5rem 1.5rem 5.5rem; }
+  .hero .meta { grid-template-columns: 1fr; gap: 1.2rem; }
+}
+
+/* SECTIONS */
+section { padding: 6rem 2rem; }
+.container { max-width: 1280px; margin: 0 auto; }
+.section-head { margin-bottom: 3.5rem; max-width: 780px; }
+.section-head h2 { font-size: clamp(2.2rem, 5vw, 3.8rem); margin-top: 1rem; }
+.section-head h2 span { color: var(--copper); }
+.section-head p { margin-top: 1.2rem; font-size: 1.08rem; color: var(--ink-dim); font-weight: 300; max-width: 600px; }
+
+/* INTRO */
+.intro { background: var(--bg-2); border-top: 1px solid var(--line); }
+.intro .grid { display: grid; grid-template-columns: 1fr 1.3fr; gap: 5rem; align-items: start; }
+.intro h2 { font-size: clamp(2rem, 4.5vw, 3.2rem); margin-top: 1rem; }
+.intro h2 span { color: var(--copper); }
+.intro p { font-size: 1.05rem; color: var(--ink-dim); font-weight: 300; margin-bottom: 1.2rem; line-height: 1.75; }
+@media (max-width: 880px) { .intro .grid { grid-template-columns: 1fr; gap: 2rem; } }
+
+/* SERVICES */
+.services { background: var(--bg); }
+.svc-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.5rem; }
+.svc {
+  background: var(--bg-3); border: 1px solid var(--line);
+  transition: all .35s;
+}
+.svc:hover {
+  transform: translateY(-5px);
+  border-color: var(--copper-deep);
+  box-shadow: 0 24px 48px -20px rgba(0,0,0,.55);
+}
+.svc .imgwrap {
+  aspect-ratio: 4/3; background: var(--bg-2); overflow: hidden; position: relative;
+}
+.svc .imgwrap::after {
+  content: ""; position: absolute; inset: 0;
+  background: linear-gradient(180deg, transparent 55%, rgba(20,17,15,.5) 100%);
+}
+.svc .imgwrap img { width: 100%; height: 100%; object-fit: cover; transition: transform .7s; filter: saturate(.88); }
+.svc:hover .imgwrap img { transform: scale(1.05); }
+.svc .body { padding: 1.8rem; }
+.svc h3 { font-size: 1.45rem; margin-bottom: .9rem; }
+.svc h3 span { color: var(--copper); }
+.svc p { color: var(--ink-dim); font-size: .97rem; font-weight: 300; margin-bottom: 1.4rem; }
+.svc .more {
+  font-size: .82rem; font-weight: 600; color: var(--copper);
+  text-transform: uppercase; letter-spacing: .1em;
+  border-bottom: 1px solid transparent; padding-bottom: 2px; transition: border-color .25s;
+}
+.svc .more:hover { border-bottom-color: var(--copper); }
+@media (max-width: 860px) { .svc-grid { grid-template-columns: 1fr; } }
+
+/* PROCESS */
+.features { background: var(--bg-2); }
+.feat-row {
+  display: grid; grid-template-columns: 1.1fr 1fr; gap: 5rem;
+  align-items: center; padding: 4rem 0;
+  border-bottom: 1px solid var(--line);
+}
+.feat-row:last-child { border-bottom: none; }
+.feat-row:nth-child(even) .feat-text { order: 2; }
+.feat-text .step {
+  display: flex; align-items: center; gap: .9rem;
+  font-size: .72rem; text-transform: uppercase; letter-spacing: .24em;
+  color: var(--copper); margin-bottom: 1.2rem;
+}
+.feat-text .step::before { content: ""; width: 28px; height: 1px; background: var(--copper); }
+.feat-text h3 { font-size: clamp(1.8rem, 3vw, 2.6rem); margin-bottom: 1.1rem; }
+.feat-text h3 span { color: var(--copper); }
+.feat-text p { font-size: 1.04rem; color: var(--ink-dim); font-weight: 300; line-height: 1.75; }
+.feat-img {
+  aspect-ratio: 4/3; overflow: hidden;
+  border: 1px solid var(--line); background: var(--bg-3);
+}
+.feat-img img { width: 100%; height: 100%; object-fit: cover; filter: saturate(.85); }
+@media (max-width: 860px) {
+  .feat-row { grid-template-columns: 1fr; gap: 1.8rem; padding: 2.5rem 0; }
+  .feat-row:nth-child(even) .feat-text { order: 0; }
+}
+
+/* WHO WE WORK WITH */
+.proof { background: var(--bg); }
+.proof-grid {
+  display: grid; grid-template-columns: repeat(4,1fr);
+  border-top: 1px solid var(--line);
+  border-left: 1px solid var(--line);
+}
+.proof-card {
+  padding: 2.2rem 1.8rem;
+  border-right: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  transition: background .25s;
+}
+.proof-card:hover { background: var(--bg-2); }
+.proof-card .label {
+  font-size: .7rem; text-transform: uppercase; letter-spacing: .22em;
+  color: var(--copper); margin-bottom: .7rem;
+}
+.proof-card .who {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 1.5rem; font-weight: 700; text-transform: uppercase;
+  letter-spacing: .04em; color: var(--ink);
+}
+@media (max-width: 860px) { .proof-grid { grid-template-columns: repeat(2,1fr); } }
+@media (max-width: 480px) { .proof-grid { grid-template-columns: 1fr; } }
+
+/* CTA STRIP */
+.cta-strip {
+  background: var(--bg); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line);
+  padding: 5.5rem 2rem; position: relative; overflow: hidden;
+}
+.cta-strip::before {
+  content: ""; position: absolute; top: 50%; left: -8%; transform: translateY(-50%);
+  width: 480px; height: 480px; pointer-events: none;
+  background: radial-gradient(circle, rgba(192,132,86,.11) 0%, transparent 65%);
+}
+.cta-strip .container {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 2rem; flex-wrap: wrap; position: relative;
+}
+.cta-strip h2 { font-size: clamp(2rem,4vw,3.2rem); max-width: 700px; }
+.cta-strip h2 span { color: var(--copper); }
+
+/* CONTACT */
+.contact { background: var(--bg-2); border-top: 1px solid var(--line); }
+.contact .grid { display: grid; grid-template-columns: 1fr 1.2fr; gap: 5rem; }
+.contact h2 { font-size: clamp(2.2rem,4.5vw,3.4rem); margin-top: 1rem; }
+.contact h2 span { color: var(--copper); }
+.contact .lead { margin-top: 1.2rem; color: var(--ink-dim); font-size: 1.05rem; font-weight: 300; }
+
+.info-block { margin-top: 2.2rem; }
+.info-row {
+  display: flex; align-items: flex-start; gap: 1.1rem;
+  padding: 1.2rem 0; border-bottom: 1px solid var(--line);
+}
+.info-row .ico {
+  width: 34px; height: 34px; flex-shrink: 0;
+  border: 1px solid var(--copper-deep); border-radius: 50%;
+  display: grid; place-items: center;
+  color: var(--copper); font-size: .95rem;
+}
+.info-row .lbl {
+  font-size: .7rem; text-transform: uppercase; letter-spacing: .22em;
+  color: var(--muted); margin-bottom: .3rem;
+}
+.info-row .val {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 1.2rem; font-weight: 600; letter-spacing: .02em;
+  text-transform: uppercase; color: var(--ink);
+}
+.info-row a:hover { color: var(--copper); }
+
+form.contact-form {
+  background: var(--bg-3); padding: 2.2rem; border: 1px solid var(--line);
+}
+.formrow { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem; }
+.field label {
+  display: block; font-size: .7rem; text-transform: uppercase;
+  letter-spacing: .2em; color: var(--muted); margin-bottom: .45rem;
+}
+.field input, .field textarea {
+  width: 100%; padding: .85rem 1rem;
+  border: 1px solid var(--line-2); background: var(--bg-2);
+  font: inherit; color: var(--ink); font-size: .95rem; transition: border-color .2s;
+}
+.field textarea { resize: vertical; min-height: 110px; }
+.field input::placeholder, .field textarea::placeholder { color: var(--muted); }
+.field input:focus, .field textarea:focus {
+  outline: none; border-color: var(--copper);
+}
+.consent {
+  display: flex; gap: .65rem; align-items: flex-start;
+  margin: 1rem 0 1.6rem; font-size: .84rem; color: var(--ink-dim); font-weight: 300;
+}
+.consent input { margin-top: 3px; accent-color: var(--copper); }
+form .cta-btn { width: 100%; justify-content: center; }
+.form-msg {
+  margin-top: 1rem; padding: .85rem 1rem;
+  background: rgba(192,132,86,.1); color: var(--copper-bright);
+  border-left: 2px solid var(--copper); display: none; font-size: .9rem;
+}
+.form-msg.show { display: block; }
+
+@media (max-width: 860px) {
+  .contact .grid { grid-template-columns: 1fr; gap: 2.5rem; }
+  .formrow { grid-template-columns: 1fr; }
+}
+
+/* FOOTER */
+footer.site {
+  background: var(--bg); color: var(--ink-dim);
+  padding: 4.5rem 2rem 2rem; border-top: 1px solid var(--line);
+}
+footer .grid {
+  max-width: 1280px; margin: 0 auto;
+  display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 3rem; align-items: start;
+}
+footer .brand img { height: 42px; margin-bottom: 1rem; }
+footer .brand p { font-size: .9rem; font-weight: 300; line-height: 1.7; max-width: 300px; }
+footer h4 {
+  font-family: 'Inter', sans-serif; font-weight: 600; font-size: .7rem;
+  text-transform: uppercase; letter-spacing: .22em; color: var(--copper); margin-bottom: 1.2rem;
+}
+footer ul { list-style: none; }
+footer ul li { margin-bottom: .6rem; font-size: .9rem; font-weight: 300; }
+footer ul li a:hover { color: var(--copper); }
+.legal {
+  max-width: 1280px; margin: 3.5rem auto 0; padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap;
+  font-size: .8rem; color: var(--muted); font-weight: 300;
+}
+.legal a:hover { color: var(--copper); }
+
+@media (max-width: 860px) { footer .grid { grid-template-columns: 1fr 1fr; gap: 2rem; } }
+@media (max-width: 480px) { footer .grid { grid-template-columns: 1fr; } }
+
+/* REVEAL */
+.reveal { opacity: 0; transform: translateY(20px); transition: opacity .8s ease, transform .8s ease; }
+.reveal.in { opacity: 1; transform: translateY(0); }
+
+::selection { background: var(--copper); color: var(--bg); }
+</style>
+</head>
+<body>
+
+<!-- UTILITY BAR -->
+<div class="utilitybar">
+  <div class="wrap">
+    <div class="badge">Greater Salt Lake Area</div>
+    <div class="right">
+      <a href="#contact">Contact Us</a>
+    </div>
+  </div>
+</div>
+
+<!-- HEADER -->
+<header class="site">
+  <div class="nav">
+    <a href="#top" class="brand">
+      <img src="images/logo.png" alt="Upright Install" />
+      <span class="wordmark">Upright <span>Install</span></span>
+    </a>
+    <nav class="menu" id="menu">
+      <a href="#top">Home</a>
+      <a href="#services">Services</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <a href="#contact" class="cta-btn">Request Estimate →</a>
+    <button class="mobile-toggle" onclick="document.getElementById('menu').classList.toggle('open')">Menu</button>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero" id="top">
+  <video autoplay muted loop playsinline class="hero-video">
+    <source src="images/Hero_Upright.mp4" type="video/mp4">
+  </video>
+  <div class="hero-wrap">
+    <div class="eyebrow">Signage · Graphics · Specialty Displays</div>
+    <h1>Up Right and <span>Installed Tight.</span></h1>
+    <p class="sub">Professional install services for signage, graphics, and specialty displays — serving the Greater Salt Lake area with reliable, clean work. No hand-holding required.</p>
+    <div class="actions">
+      <a href="#contact" class="cta-btn">Get a Free Quote →</a>
+      <a href="#contact" class="cta-btn ghost">Book Site Survey</a>
+    </div>
+    <div class="meta">
+      <div><div class="lbl">Service Area</div><div class="val">Greater Salt Lake</div></div>
+      <div><div class="lbl">Built For</div><div class="val">Sign Shops &amp; Print Pros</div></div>
+      <div><div class="lbl">Standard</div><div class="val">On-Time. Done Right.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- INTRO / ABOUT -->
+<section class="intro" id="about">
+  <div class="container">
+    <div class="grid">
+      <div>
+        <div class="eyebrow">Who We Are</div>
+        <h2>A Trusted Install Partner for the <span>Trade</span>.</h2>
+      </div>
+      <div>
+        <p>Upright Install is a trusted signage and graphics installation team serving the Greater Salt Lake area. With years of combined field experience, we specialize in clean, on-time installs for sign shops, print providers, and contractors who want the job done right — the first time.</p>
+        <p>From window vinyl to channel letters, post-mounted signage, and environmental graphics — we've done it all. We show up ready, work clean, and leave your clients impressed.</p>
+        <a href="#contact" class="cta-btn" style="margin-top:1.4rem;">Get a Free Quote →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="services" id="services">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow">What We Do</div>
+      <h2>Install Services You Can <span>Count On</span>.</h2>
+      <p>From simple installs to full-scale projects, we handle the heavy lifting so your signs look great — and stay put.</p>
+    </div>
+    <div class="svc-grid">
+
+      <article class="svc">
+        <div class="imgwrap">
+          <img src="images/vinyl service card.jpeg" alt="Vinyl and graphics install" />
+        </div>
+        <div class="body">
+          <h3>Vinyl, Graphics &amp; <span>Environmental</span></h3>
+          <p>Window perf, wall wraps, frost, floor graphics, stair wraps, hanging menu boards — if it sticks, mounts, or wraps, we've installed it clean.</p>
+          <a href="#contact" class="more">Learn More →</a>
+        </div>
+      </article>
+
+      <article class="svc">
+        <div class="imgwrap">
+          <img src="images/building signage card.jpeg" alt="Building and post-mounted signage" />
+        </div>
+        <div class="body">
+          <h3>Building &amp; <span>Post-Mounted</span> Signage</h3>
+          <p>Channel letters, acrylics with standoffs, Lexan panels, monument or pylon face swaps, and MDO/post installs. We bring the gear and get it done.</p>
+          <a href="#contact" class="more">Learn More →</a>
+        </div>
+      </article>
+
+      <article class="svc">
+        <div class="imgwrap">
+          <img src="images/process step 1.jpeg" alt="Site inspections and field work" />
+        </div>
+        <div class="body">
+          <h3>Site Inspections &amp; <span>Field Work</span></h3>
+          <p>We'll measure twice, install once. Whether it's a field survey, site prep, or helping your team get accurate measurements — we've got it covered.</p>
+          <a href="#contact" class="more">Learn More →</a>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="features">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow">How We Work</div>
+      <h2>Simple Process. <span>Solid Work</span>.</h2>
+      <p>Fast communication, reliable scheduling, and installs that get done right the first time. We handle the details so you don't have to.</p>
+    </div>
+
+    <div class="feat-row">
+      <div class="feat-text">
+        <div class="step">Step 01 — Site Survey</div>
+        <h3>Need a Site Survey? <span>We'll Measure</span>.</h3>
+        <p>We handle site inspections, field measurements, and install planning so your team has everything they need to keep the job moving. No guesswork, no surprises — just solid info you can build on.</p>
+      </div>
+      <div class="feat-img">
+        <img src="images/site survey card.jpeg" alt="Site survey" />
+      </div>
+    </div>
+
+    <div class="feat-row">
+      <div class="feat-text">
+        <div class="step">Step 02 — Install</div>
+        <h3>We Handle the Install. <span>You Get Peace of Mind</span>.</h3>
+        <p>Whether it's interior environmental graphics, ADA signage, or exterior building signs — we show up ready, install clean, and make sure it's done right. We're not here to wing it.</p>
+      </div>
+      <div class="feat-img">
+        <img src="images/process step 2.jpeg" alt="Install in progress" />
+      </div>
+    </div>
+
+    <div class="feat-row">
+      <div class="feat-text">
+        <div class="step">Step 03 — Verify &amp; Document</div>
+        <h3>We Double Check. We Clean Up. <span>We Take the Pics</span>.</h3>
+        <p>We make sure the job is level, secure, and spotless — and we document the final product so you have proof your project was done right. We're not the crew that disappears the second the ladder comes down.</p>
+      </div>
+      <div class="feat-img">
+        <img src="images/process step 3.jpeg" alt="Completed install" />
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHO WE WORK WITH -->
+<section class="proof">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow">Built for the Trade</div>
+      <h2>Who We <span>Work With</span>.</h2>
+      <p>The install partner behind sign shops, print providers, and contractors across the Greater Salt Lake area.</p>
+    </div>
+    <div class="proof-grid">
+      <div class="proof-card"><div class="label">Trade</div><div class="who">Sign Shops</div></div>
+      <div class="proof-card"><div class="label">Trade</div><div class="who">Print Providers</div></div>
+      <div class="proof-card"><div class="label">Trade</div><div class="who">General Contractors</div></div>
+      <div class="proof-card"><div class="label">Trade</div><div class="who">Property Managers</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA STRIP -->
+<div class="cta-strip">
+  <div class="container">
+    <h2>Need an Install Done <span>Right the First Time</span>?</h2>
+    <a href="#contact" class="cta-btn">Get a Free Quote →</a>
+  </div>
+</div>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="container">
+    <div class="grid">
+      <div>
+        <div class="eyebrow">Contact</div>
+        <h2>Our Team Is <span>Here to Help</span>.</h2>
+        <p class="lead">Questions about services, rates, or availability — fill out the form or reach out directly.</p>
+        <div class="info-block">
+          <div class="info-row">
+            <div class="ico">✆</div>
+            <div>
+              <div class="lbl">Phone</div>
+              <div class="val"><a href="#contact">Use Form</a></div>
+            </div>
+          </div>
+          <div class="info-row">
+            <div class="ico">✉</div>
+            <div>
+              <div class="lbl">Email</div>
+              <div class="val"><a href="#contact">Use Form</a></div>
+            </div>
+          </div>
+          <div class="info-row">
+            <div class="ico">◉</div>
+            <div>
+              <div class="lbl">Service Area</div>
+              <div class="val">Greater Salt Lake</div>
+            </div>
+          </div>
+          <div class="info-row">
+            <div class="ico">★</div>
+            <div>
+              <div class="lbl">Our Standard</div>
+              <div class="val">On-Time · Done Right</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <form class="contact-form" onsubmit="return handleSubmit(event)">
+        <div class="formrow">
+          <div class="field"><label for="fn">First Name *</label><input id="fn" type="text" name="first_name" required /></div>
+          <div class="field"><label for="ln">Last Name *</label><input id="ln" type="text" name="last_name" required /></div>
+        </div>
+        <div class="formrow">
+          <div class="field"><label for="em">Email *</label><input id="em" type="email" name="email" required /></div>
+          <div class="field"><label for="ph">Phone *</label><input id="ph" type="tel" name="phone" required /></div>
+        </div>
+        <div class="field" style="margin-bottom:1rem;">
+          <label for="msg">What do you need?</label>
+          <textarea id="msg" name="message" rows="5"></textarea>
+        </div>
+        <label class="consent">
+          <input type="checkbox" required />
+          <span>I consent to receive SMS notifications and occasional marketing communication from Upright Install.</span>
+        </label>
+        <button type="submit" class="cta-btn">Submit Request →</button>
+        <div class="form-msg" id="formMsg">Got it — we'll be in touch shortly.</div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="site">
+  <div class="grid">
+    <div class="brand">
+      <img src="images/Logo.png" alt="Upright Install" />
+      <p>Professional install services for signage, graphics, and specialty displays — serving the Greater Salt Lake area.</p>
+    </div>
+    <div>
+      <h4>Navigate</h4>
+      <ul>
+        <li><a href="#top">Home</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Services</h4>
+      <ul>
+        <li><a href="#services">Vinyl &amp; Graphics</a></li>
+        <li><a href="#services">Building Signage</a></li>
+        <li><a href="#services">Post-Mounted Signs</a></li>
+        <li><a href="#services">Site Surveys</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Contact</h4>
+      <ul>
+        <li><a href="#contact">Contact Us</a></li>
+        <li>Greater Salt Lake Area</li>
+      </ul>
+    </div>
+  </div>
+  <div class="legal">
+    <div>© <span id="yr"></span> Upright Install — Website by <a href="https://robargemarketing.com" style="color:var(--copper);">Robarge Marketing</a></div>
+    <div><a href="#">Privacy Policy</a> &nbsp;·&nbsp; <a href="#">Terms &amp; Conditions</a></div>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('yr').textContent = new Date().getFullYear();
+
+  const els = document.querySelectorAll('.section-head, .svc, .feat-row, .proof-card, .info-row, .hero h1, .hero .sub, .hero .actions, .hero .meta > div');
+  els.forEach(el => el.classList.add('reveal'));
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, { threshold: .1 });
+  els.forEach(el => io.observe(el));
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    document.getElementById('formMsg').classList.add('show');
+    e.target.reset();
+    return false;
+  }
+</script>
+
+</body>
+</html>
